@@ -2,14 +2,23 @@ class MealsController < ApplicationController
 
 
   def index
-    @meals = Meal.all
+    @meals = []
   end
+  
+  def show 
+    @meals = Meal.all
+    @meal = Meal.find(params[:id])
+    @ingredients = Ingredient.all
+  end
+  
   def new 
     @meal = Meal.new
   end
 
   def show 
     @meals = Meal.all
+    @meal = Meal.find(params[:id])
+    @ingredients = Ingredient.all
   end
 
   def create
@@ -28,8 +37,7 @@ class MealsController < ApplicationController
 
   
   
-  def index
-  end
+  
 private
   def meal_params 
     params.require(:meal).permit(:title, ingredients:[], ingredients_attributes: [:name])
