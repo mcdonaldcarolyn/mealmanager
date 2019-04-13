@@ -12,6 +12,12 @@ class MealsController < ApplicationController
       render :new
     end
   end
+
+  def edit 
+    @meal = Meal.find(params[:id])
+  end
+
+  
   
   
   def index
