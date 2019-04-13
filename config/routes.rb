@@ -4,4 +4,6 @@ resources :meals do
   resources :ingredients
 end
 resources :meals_ingredients
+
+root to: "meals#index"
 end
