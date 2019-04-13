@@ -11,5 +11,10 @@ class IngredientsController < ApplicationController
     end
   end
 
+  def show 
+    @ingredient = Ingredient.find(params[:id])
+    @meals_ingredients = MealsIngredient.all
+  end
   
+
 end

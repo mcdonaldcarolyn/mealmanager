@@ -1,0 +1,7 @@
+<h3>Create a ingredient list</h3>
+<%= render 'form' , :locals => {:ingredient => @ingredient} %>
+ 
+
+<%= link_to "Back to ingredient list", ingredients_path(@ingredients)%>
+<br>
+<%= link_to "Back to Meals list", meals_path(@meals)%>
