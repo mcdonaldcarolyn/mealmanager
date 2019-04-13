@@ -8,6 +8,10 @@ class MealsController < ApplicationController
     @meal = Meal.new
   end
 
+  def show 
+    @meals = Meal.all
+  end
+
   def create
     @meal = Meal.new(meal_params)
     if @meal.save
@@ -25,5 +29,9 @@ class MealsController < ApplicationController
   
   
   def index
+  end
+private
+  def meal_params 
+    params.require(:meal).permit(:title, ingredients:[], ingredients_attributes: [:name])
   end
 end
