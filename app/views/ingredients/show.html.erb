@@ -4,4 +4,25 @@
 <% mealing = @meal.meals_ingredients.find { |mi| mi.ingredient_id == ingredient.id } %>
 <li><%= ingredient.name %> (<%= mealing.amount %>)
 <% end %>
+</li>
 <%= link_to "back to Meal's List", meals_path(@meal) %>
+
+<h3>Add an Ingredient </h3>
+<%= form_for @meals_ingredient do |f| %> 
+  <%= f.hidden_field :meal_id, :value => @meal.id %>
+   pick <%= f.collection_select :ingredient_id, Ingredient.all, :id, :name, { include_blank: '' } %> 
+
+
+Create Ingredient:
+
+<%= f.fields_for @meals_ingredient.build_ingredient do |ingredients_fields| %>
+    <%= ingredients_fields.text_field :name %>
+<% end %>
+  and add your amount:
+  <%= f.number_field :amount %>
+
+  
+  <%= f.submit %>
+<% end %> 
+
+<%= link_to "Edit Ingredients", ingredients_path(@ingredients)%>
