@@ -4,7 +4,7 @@ class IngredientsController < ApplicationController
     if params[:meal_id]
       @meal = Meal.find(params[:meal_id])
       @ingredients = @meal.ingredients
-      @meals_ingredient = MealIngredient.new
+      @meals_ingredient = MealsIngredient.new
       render :show
     else
       @ingredients = Ingredient.all
@@ -16,5 +16,27 @@ class IngredientsController < ApplicationController
     @meals_ingredients = MealsIngredient.all
   end
 
+  def new
+    @ingredient = Ingredient.new
+  end
 
+  def create 
+    @ingredient = Ingredient.new(ingredient_params)
+    if @ingredient.save
+      redirect_to meal_ingredients_path
+    else
+      render :new
+    end
+  end
+
+  def edit 
+    @ingredient = Ingredient.find(params[:id])
+    @ingredients = Ingredient.all
+  end
+
+
+  private 
+  def ingredient_params
+    params.require(:ingredient).permit(:name)
+  end
 end
