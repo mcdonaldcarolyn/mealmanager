@@ -13,4 +13,15 @@ class MealsIngredient < ApplicationRecord
         :unit => meals_ingredients_params[:unit]
       })
   end
+
+  def self.params_make
+    ingredient = Ingredient.find_or_create_by({
+      :name => meals_ingredient_params[:ingredient][:name]
+    })
+    meal_ingredient = MealsIngredient.create({
+      :meal_id => meals_ingredient_params[:meal_id],
+      :ingredient_id => ingredient.id,
+      :amount => meals_ingredient_params[:amount]
+      :unit => meals_ingredients_params[:unit]
+  end
 end
