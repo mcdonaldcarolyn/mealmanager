@@ -4,14 +4,14 @@ class MealsIngredient < ApplicationRecord
   accepts_nested_attributes_for :ingredient
 
   def self.params_check (meals_ingredient_params)
-  
-     meals_ingredient_params[:ingredient_id].length > 0
       meal_ingredient = MealsIngredient.create({
         :meal_id => meals_ingredient_params[:meal_id],
         :ingredient_id => meals_ingredient_params[:ingredient_id],
         :amount => meals_ingredient_params[:amount],
         :unit => meals_ingredient_params[:unit]
       })
+
+      meal_ingredient
   end
 
   def self.params_make(meals_ingredient_params)
@@ -24,6 +24,8 @@ class MealsIngredient < ApplicationRecord
       :amount => meals_ingredient_params[:amount],
       :unit => meals_ingredient_params[:unit]
     })
+
+    meal_ingredient
   end
 
 end
