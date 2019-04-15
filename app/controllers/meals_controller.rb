@@ -9,6 +9,7 @@ class MealsController < ApplicationController
     @meals = Meal.all
     @meal = Meal.find(params[:id])
     @ingredients = Ingredient.all
+    @meals_ingredient = MealsIngredient.new
   end
   
   def new 
