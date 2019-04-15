@@ -12,9 +12,9 @@ class User < ApplicationRecord
       user.uid = auth.uid
       user.email= auth.info.email
       user.password = Devise.friendly_token[0, 20]
-        data = access_token.info
-        user = User.where(email: data['email']).first
-        user
+      #   data = access_token.info
+      #   user = User.where(email: data['email']).first
+      #   user
       end 
     end
  end
