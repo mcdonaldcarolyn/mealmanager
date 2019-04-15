@@ -46,6 +46,19 @@ class IngredientsController < ApplicationController
     end
   end
 
+  def destroy
+    ingredient = Ingredient.find(params[:id])
+    if params[:meal_id] 
+      meal = Meal.find(params[:meal_id])
+      
+      meal.ingredients.delete(ingredient)
+      redirect_to meal_ingredients_path(meal)
+    else
+      ingredient.destroy
+      redirect_to ingredients_path
+    end
+  end
+
   private 
   def ingredient_params
     params.require(:ingredient).permit(:name)
