@@ -14,6 +14,8 @@ class IngredientsController < ApplicationController
   def show 
     @ingredient = Ingredient.find(params[:id])
     @meals_ingredients = MealsIngredient.all
+
+    @units = [{ :name => "liters, oz, lbs, cups" }]
   end
 
   def new

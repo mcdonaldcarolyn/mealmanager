@@ -20,6 +20,7 @@ Create Ingredient:
 <% end %>
   and add your amount:
   <%= f.number_field :amount %>
+  <%= f.select :unit, ["ounces", "lbs", "cups"] %>
 
   
   <%= f.submit %>
