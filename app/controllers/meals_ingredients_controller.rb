@@ -10,6 +10,9 @@ class MealsIngredientsController < ApplicationController
       redirect_to meals_ingredients_path(@meal)
     end
   end
+  def index
+  
+  end
 
   def show 
      @meal = Meal.find_by(params[:meal_id])
