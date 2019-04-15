@@ -2,7 +2,7 @@
 
 <% @ingredients.each do |ingredient| %>
 <% mealing = @meal.meals_ingredients.find { |mi| mi.ingredient_id == ingredient.id } %>
-<li><%= ingredient.name %> (<%= mealing.amount %>)
+<li><%= ingredient.name %> (<%= mealing.amount %> <%= mealing.unit%>)
 
 <%= link_to "Remove", meal_ingredient_path(@meal, ingredient), method: :delete %> 
 <% end %>
