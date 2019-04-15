@@ -30,6 +30,7 @@ gem 'devise'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 gem 'omniauth-google-oauth2'
+gem 'dotenv-rails', '~> 2.6'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
