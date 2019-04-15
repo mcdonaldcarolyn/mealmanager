@@ -21,8 +21,8 @@ Create Ingredient:
     <%= ingredients_fields.text_field :name %>
 
   and add your amount:
-  <%= ingredients_fields.number_field :amount %>
-  <%= ingredients_fields.select :unit, ["ounces", "lbs", "cups"] %>
+  <%= f.number_field :amount %>
+  <%= f.select :unit, ["ounces", "lbs", "cups"] %>
 <% end %>
   
   <%= f.submit %>
