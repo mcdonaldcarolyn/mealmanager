@@ -1,5 +1,5 @@
 class IngredientsController < ApplicationController
-
+  before_action :authenticate_user!
   def index 
     if params[:meal_id]
       @meal = Meal.find(params[:meal_id])
