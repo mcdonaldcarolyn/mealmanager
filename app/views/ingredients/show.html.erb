@@ -3,6 +3,8 @@
 <% @ingredients.each do |ingredient| %>
 <% mealing = @meal.meals_ingredients.find { |mi| mi.ingredient_id == ingredient.id } %>
 <li><%= ingredient.name %> (<%= mealing.amount %>)
+
+<%= link_to "Remove", meal_ingredient_path(@meal, ingredient), method: :delete %> 
 <% end %>
 </li>
 <%= link_to "back to Meal's List", meals_path(@meal) %>
@@ -19,8 +21,8 @@ Create Ingredient:
     <%= ingredients_fields.text_field :name %>
 <% end %>
   and add your amount:
-  <%= f.number_field :amount %>
-  <%= f.select :unit, ["ounces", "lbs", "cups"] %>
+  <%= ingredients_fields.number_field :amount %>
+  <%= ingredients_fields.select :unit, ["ounces", "lbs", "cups"] %>
 
   
   <%= f.submit %>

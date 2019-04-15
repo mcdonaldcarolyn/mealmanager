@@ -4,7 +4,7 @@ class MealsIngredientsController < ApplicationController
   def create
     if meals_ingredient_params[:ingredient_id].length > 0
       MealsIngredients.params_check(meals_ingredient_params)
-      redirect_to meals_ingredients_path(@meal)
+      redirect_to meal_ingredients_path(@meal)
     else
       MealsIngredient.params_make(meals_ingredient_params)
       redirect_to meals_ingredients_path(@meal)
