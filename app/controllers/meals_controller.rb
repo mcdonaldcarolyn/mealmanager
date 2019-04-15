@@ -16,11 +16,7 @@ class MealsController < ApplicationController
     @meal = Meal.new
   end
 
-  def show 
-    @meals = Meal.all
-    @meal = Meal.find(params[:id])
-    @ingredients = Ingredient.all
-  end
+  
 
   def create
     @meal = Meal.new(meal_params)
