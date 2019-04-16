@@ -11,9 +11,8 @@ class MealsIngredientsController < ApplicationController
       redirect_to meal_ingredients_path(meal_ingredient.meal)
     end
   end
-  def index
   
-  end
+
 
   def show 
      @meal = Meal.find_by(params[:meal_id])
