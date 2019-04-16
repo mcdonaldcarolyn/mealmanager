@@ -3,5 +3,6 @@
 <% @ingredients.each do |ingredient|%>
 <li>
   <%= ingredient.name %>
+   <%= link_to "Edit", edit_ingredient_path(ingredient) %> 
   <% end %>
   <%= link_to "Meals list", meals_path %>
