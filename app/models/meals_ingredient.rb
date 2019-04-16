@@ -4,6 +4,8 @@ class MealsIngredient < ApplicationRecord
   accepts_nested_attributes_for :ingredient
   validates :amount,  presence: true
 
+  
+
   def self.params_check (meals_ingredient_params)
       meal_ingredient = MealsIngredient.create({
         :meal_id => meals_ingredient_params[:meal_id],
