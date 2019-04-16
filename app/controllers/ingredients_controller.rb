@@ -34,6 +34,7 @@ class IngredientsController < ApplicationController
   def edit 
     @ingredient = Ingredient.find(params[:id])
     @ingredients = Ingredient.all
+    @meals_ingredient = MealsIngredient.find(params[:id])
   end
 
   def update 
