@@ -2,7 +2,8 @@ class MealsIngredient < ApplicationRecord
   belongs_to :meal
   belongs_to :ingredient
   accepts_nested_attributes_for :ingredient
-
+  validates :title,  presence: true, uniqueness: true
+  
   def self.params_check (meals_ingredient_params)
       meal_ingredient = MealsIngredient.create({
         :meal_id => meals_ingredient_params[:meal_id],
