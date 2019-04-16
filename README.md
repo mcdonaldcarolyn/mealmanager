@@ -11,11 +11,11 @@ To create an app to keep track of your favorite meals and to make meal planning 
 In your terminal, write the following commands: 
 
 * `git clone https://github.com/mcdonaldcarolyn/mealmanager`
-* `cd mealmanagerr`
+* `cd mealmanager`
 * `bundle install`
 * `rake db:migrate`
 * add google app id and key to allow omniauth to work 
-* Follow prompts on the Welcome page and making meals and adding ingredients.
+* Follow prompts on the Welcome page and start making meals and adding ingredients.
 #### Contributing
 * Fork it!
 * Create your feature branch: git checkout -b my-new-feature
