@@ -2,7 +2,7 @@ class MealsIngredient < ApplicationRecord
   belongs_to :meal
   belongs_to :ingredient
   accepts_nested_attributes_for :ingredient
-  validates :amount,  presence: true, uniqueness: true
+  validates :amount,  presence: true
 
   def self.params_check (meals_ingredient_params)
       meal_ingredient = MealsIngredient.create({
