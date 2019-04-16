@@ -1,4 +1,8 @@
 <%= render  'form', :locals => {:meal => @meal} %>
-
+<% if @meal.errors.any?%>
+    <% @meal.errors.full_messages.each do |msg|%>
+    <%= msg%>
+    <% end %>
+    <% end %>
 <%= link_to "back", meals_path(@meals)%>
 
