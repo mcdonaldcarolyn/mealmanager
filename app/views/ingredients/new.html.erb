@@ -1,6 +1,10 @@
 <h3>Create a ingredient list</h3>
 <%= render 'form' , :locals => {:ingredient => @ingredient} %>
- 
+ <% if @ingredient.errors.any?%>
+    <% @ingredient.errors.full_messages.each do |msg|%>
+    <%= msg%>
+    <% end %>
+    <% end %>
 
 <%= link_to "Back to ingredient list", ingredients_path(@ingredients)%>
 <br>
