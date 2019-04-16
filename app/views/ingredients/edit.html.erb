@@ -1,0 +1,3 @@
+<%= render 'form' , :locals => {:ingredient => @ingredient} %>
+
+<%= link_to "Delete", ingredient_path(@ingredient), method: :delete, :confirm => "Are you sure you want to delete?"%>
