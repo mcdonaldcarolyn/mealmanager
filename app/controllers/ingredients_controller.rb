@@ -34,15 +34,14 @@ class IngredientsController < ApplicationController
   def edit 
     @ingredient = Ingredient.find(params[:id])
     @ingredients = Ingredient.all
-    @meals_ingredient = @ingredient.MealsIngredient.find(params[:id])
+    
   end
 
   def update 
       @ingredient = Ingredient.find(params[:id])
       @ingredient.update(ingredient_params)
-      @meals_ingredient = MealsIngredient.find(params[:id])
-      @meals_ingredient.update(meals_ingredient_params)
-    if @ingredient.save && @meals_ingredient.save
+      
+    if @ingredient.save 
       redirect_to ingredients_path
     else 
       render :new

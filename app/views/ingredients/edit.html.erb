@@ -1,13 +1,4 @@
-<%= form_for @ingredient do |f| %>
-<p>
-<%= f.label :name %>
-<%= f.text_field :name %>
-</p>
-<%= form_for @meals_ingredient do |f| %> 
-<%= f.number_field :amount %>
-<%= f.select :unit, ["ounce(s)", "lb(s)", "cup(s)", "teas", "tbsp"] %>
-<% end %>
-<%= f.submit %>
-<% end %>
+<%= render 'form' , :locals => {:ingredient => @ingredient} %>
+
 
 <%= link_to "Delete", ingredient_path(@ingredient), method: :delete, :confirm => "Are you sure you want to delete?"%>
