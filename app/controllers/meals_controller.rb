@@ -3,6 +3,8 @@ class MealsController < ApplicationController
 
   def index
     @meals = Meal.all
+    
+    @vegetarian = MealsIngredient.find_veg_meals
   end
   
   def show 
@@ -10,6 +12,7 @@ class MealsController < ApplicationController
     @meal = Meal.find(params[:id])
     @ingredients = Ingredient.all
     @meals_ingredient = MealsIngredient.new
+   
   end
   
   def new 

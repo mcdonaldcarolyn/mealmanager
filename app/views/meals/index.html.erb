@@ -10,15 +10,15 @@
     <%= link_to "Make a new meal", new_meal_path(@meal)%>
 
     <h4> Vegetarian Meals</h4>
-  <% Meal.vegetarian.each do |meal|%>
+  <% @vegetarian.each do |meal|%>
   <li>
   <%= link_to meal.title, meal_ingredients_path(meal) %>
   </li>
   <% end %>
     <br>
     <h4>Gluten Free Meals</h4>
-<% Meal.glutenfree. each do |meal|%>
-<li>
+  <% Meal.glutenfree. each do |meal|%>
+  <li>
   <%= link_to meal.title, meal_ingredients_path(meal)%>
   </li>
   <% end %>

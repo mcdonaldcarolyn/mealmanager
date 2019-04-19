@@ -1,0 +1,11 @@
+<h1>Edit </h1>
+
+You are editing <%= @meal_ingredient.ingredient.name %> from <%= @meal_ingredient.meal.title%>
+<br>
+What amount would you like:
+  <%= form_for @meal_ingredient do |f| %> 
+  <%= f.number_field :amount %>
+  <%= f.select :unit, ["ounce(s)", "lb(s)", "cup(s)", "teas", "tbsp"] %>
+  <%= f.submit %>
+  <% end %>
+  

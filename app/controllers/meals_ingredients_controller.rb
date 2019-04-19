@@ -19,6 +19,21 @@ class MealsIngredientsController < ApplicationController
      @meals_ingredient = MealsIngredient.find(params[:id])
   end
 
+  def edit 
+    # byebug
+    @meal_ingredient = MealsIngredient.find(params[:id])
+    # render "meals_ingredient/edit"
+  end
+
+  def update
+    @meal_ingredient = MealsIngredient.find(params[:id])
+   if  @meal_ingredient.update(meals_ingredient_params)
+    redirect_to meal_ingredients_path(@meal_ingredient.meal)
+   else 
+    render :edit
+   end
+  end
+
 private 
 def meals_ingredient_params
   params.require(:meals_ingredient).permit(:amount, :unit, :meal_id, :ingredient_id, ingredient:[:name])

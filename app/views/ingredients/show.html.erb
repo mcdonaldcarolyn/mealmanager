@@ -5,6 +5,8 @@
 <li><%= ingredient.name %> (<%= mealing.amount %> <%= mealing.unit%>)
 
 <%= link_to "Remove", meal_ingredient_path(@meal, ingredient), method: :delete %> 
+or
+<%= link_to "Edit", edit_meals_ingredient_path(mealing)%>
 <% end %>
 </li>
 <br>

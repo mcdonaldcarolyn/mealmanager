@@ -5,6 +5,16 @@ class MealsIngredient < ApplicationRecord
   validates :amount,  presence: true
 
   
+  def self.find_veg_meals
+    # ingred_ids = Ingredient.veggie.ids 
+    meat_ids = Ingredient.meat.ids
+    meat_meal_ids = where(ingredient_id: meat_ids).pluck(:meal_id)
+    where.not(meal_id: meat_meal_ids).collect(&:meal).uniq
+    # where(ingredient_id: ingred_ids)
+  
+    # MealsIngredient.where.(ingredient_id: ingred_ids).collect(&:meal).uniq
+    # MealsIngredient.where(ingredient_id: ingred_ids).pluck(:meal_id).uniq
+  end  
 
   def self.params_make (meals_ingredient_params)
       meal_ingredient = MealsIngredient.create({
