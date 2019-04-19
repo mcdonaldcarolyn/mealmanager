@@ -16,6 +16,12 @@ class MealsIngredient < ApplicationRecord
     # MealsIngredient.where(ingredient_id: ingred_ids).pluck(:meal_id).uniq
   end  
 
+  def self.find_glutenfree_meals
+    gluten_ids = Ingredient.gluten.ids
+    gluten_meal_ids = where(ingredient_id: gluten_ids).pluck(:meal_id)
+    where.not(meal_id: gluten_meal_ids).collect(&:meal).uniq
+  end
+
   def self.params_make (meals_ingredient_params)
       meal_ingredient = MealsIngredient.create({
         :meal_id => meals_ingredient_params[:meal_id],

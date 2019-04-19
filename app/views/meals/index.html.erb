@@ -17,7 +17,7 @@
   <% end %>
     <br>
     <h4>Gluten Free Meals</h4>
-  <% Meal.glutenfree. each do |meal|%>
+  <% @glutenfree.each do |meal|%>
   <li>
   <%= link_to meal.title, meal_ingredients_path(meal)%>
   </li>

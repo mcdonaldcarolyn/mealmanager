@@ -3,7 +3,7 @@ class MealsController < ApplicationController
 
   def index
     @meals = Meal.all
-    
+    @glutenfree = MealsIngredient.find_glutenfree_meals
     @vegetarian = MealsIngredient.find_veg_meals
   end
   
