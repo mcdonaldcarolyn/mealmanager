@@ -4,12 +4,13 @@
 <% @meals.each do |meal|%>
   <li>
     <%= link_to meal.title, meal_ingredients_path(meal)%>
-    (<%= link_to "Edit", edit_meal_path(meal) %>)
-    <div id="hidden" style="display:none">
-    <%= render 'meals_ingredient/form' %>
+    (<%= link_to "Edit", "#", {id:"editMeal", data:{meal_id: meal.id}} %>)
+    <div id="editForm-<%=meal.id%>">
+    </div>
   </li>
   <% end %>
-
+  <div style="display:none" id="hidden"><%= render  'form', :locals => {:meal => Meal.new} %>
+  </div>
     <br>
     <%= link_to "Make a new meal", new_meal_path(@meal)%>
 
