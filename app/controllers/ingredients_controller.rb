@@ -8,6 +8,7 @@ class IngredientsController < ApplicationController
       render :show
     else
       @ingredients = Ingredient.all
+      render json: @ingredients
     end
   end
 
