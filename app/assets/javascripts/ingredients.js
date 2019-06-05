@@ -1,6 +1,8 @@
-$(document).ready(()=>{
-    console.log("hello")
-})
+$(document).ready(() => {
+
+
+
+});
 
 // window.addEventListener('DOMContentLoaded', (event) => {
 //     // change this to the route in your controller to return json
