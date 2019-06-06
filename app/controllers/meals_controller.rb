@@ -5,15 +5,14 @@ class MealsController < ApplicationController
     @meals = Meal.all
     @glutenfree = MealsIngredient.find_glutenfree_meals
     @vegetarian = MealsIngredient.find_veg_meals
-    render json: @meals
+    
   end
-  
   def show 
     @meals = Meal.all
     @meal = Meal.find(params[:id])
     @ingredients = Ingredient.all
     @meals_ingredient = MealsIngredient.new
-   
+   render json: @meals_ingredients
   end
   
   def new 

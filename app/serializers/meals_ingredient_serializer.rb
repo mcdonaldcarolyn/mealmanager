@@ -1,5 +1,5 @@
 class MealsIngredientSerializer < ActiveModel::Serializer
   attributes :id, :amount, :unit
-  belongs_to :meals
+  belongs_to :meals, serializer: MealSerializer
 
 end

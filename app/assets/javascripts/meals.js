@@ -4,7 +4,7 @@ $(document).ready(()=>{
     $('a#editMeal').on('click', (e)=>{
         e.preventDefault();
 
-        $.ajax('/meals_ingredients', {
+        $('@meals_ingredients', {
             success: function (data) {
                 console.log(data);
             },
