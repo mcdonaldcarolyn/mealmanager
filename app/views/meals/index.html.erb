@@ -15,6 +15,7 @@
     <%= link_to "Make a new meal", new_meal_path(@meal)%>
 
     <h4> Vegetarian Meals</h4>
+    
   <% @vegetarian.each do |meal|%>
   <li>
   <%= link_to meal.title, meal_ingredients_path(meal) %>

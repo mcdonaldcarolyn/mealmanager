@@ -1,10 +1,14 @@
 $(document).ready(()=>{
-    console.log(@meals_ingredients)
+    console.log("hello")
+   
 })
-   // $('a#editMeal').on('click', (e)=>{
-//      e.preventDefault();
 
- //      $( '@meals_ingredients', {
+
+   $('a#editMeal').on('click', (e)=>{
+     e.preventDefault();
+     e.
+
+  //     $( '@meals_ingredients', {
 //             success: function (data) {
 //                 console.log(data);
 //             },

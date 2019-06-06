@@ -12,7 +12,7 @@ class MealsController < ApplicationController
     @meal = Meal.find(params[:id])
     @ingredients = Ingredient.all
     @meals_ingredient = MealsIngredient.new
-   render json: @meals_ingredients
+   #render json: @meals
   end
   
   def new 

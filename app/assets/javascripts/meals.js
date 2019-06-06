@@ -1,5 +1,6 @@
 $(document).ready(()=>{
-    console.log("hello")
+    console.log()
+    
     
     $('a#editMeal').on('click', (e)=>{
         e.preventDefault();
@@ -13,5 +14,7 @@ $(document).ready(()=>{
             }
         });
     });
+
+    
 })
 
