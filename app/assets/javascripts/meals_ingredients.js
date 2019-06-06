@@ -2,11 +2,12 @@ $(document).ready(()=>{
     console.log("hello")
    
 })
-
+    let meals = Meal.all
+    console.log(meals)
 
    $('a#editMeal').on('click', (e)=>{
      e.preventDefault();
-     e.
+    
 
   //     $( '@meals_ingredients', {
 //             success: function (data) {
