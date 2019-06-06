@@ -1,0 +1,2 @@
+class MealsJsonController < ApplicationController
+end
