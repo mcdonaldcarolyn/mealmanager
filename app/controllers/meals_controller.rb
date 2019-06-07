@@ -56,6 +56,6 @@ end
   
 private
   def meal_params 
-    params.require(:meal).permit(:title, ingredients:[], ingredients_attributes: [:name])
+    params.require(:meal).permit(:title, :notes, ingredients:[], ingredients_attributes: [:name])
   end
 end
