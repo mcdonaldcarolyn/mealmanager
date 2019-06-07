@@ -5,7 +5,7 @@ class MealsController < ApplicationController
     @meals = Meal.all
     @glutenfree = MealsIngredient.find_glutenfree_meals
     @vegetarian = MealsIngredient.find_veg_meals
-    render json: @meals
+    #render json: @meals
   end
   def show 
     @meals = Meal.all
