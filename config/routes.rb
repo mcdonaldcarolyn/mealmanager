@@ -8,6 +8,6 @@ Rails.application.routes.draw do
   end
   resources :meals_ingredients
   resources :ingredients
-
+  resources :meals_json
   root to: "meals#index"
 end
