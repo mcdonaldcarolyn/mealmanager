@@ -9,7 +9,16 @@ or
 <%= link_to "Edit", edit_meals_ingredient_path(mealing)%>
 
 <% end %>
-<div id="addNote-<%=@meal.id%>"> Add Note
+<br>
+
+<%= link_to 'Add Note', '', :id => 'addNote' %> 
+
+  <div id='hiddenForm' style='display:none'>
+    <%= form_for @meal, url:  do |f| %>
+      <%= f.text_field :notes %>
+      <%= f.submit('Add') %>
+    <% end %>
+  </div>
 </div>
 </li>
 <br>

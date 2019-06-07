@@ -1,7 +1,7 @@
 $(document).ready(() =>{
-    $('div#addNote').click(function(evt, displayNotesForm){
+    $('a#addNote').click(function(evt, displayNotesForm){
         evt.preventDefault();
-        
+        $('#hiddenForm').show();
     });
 });
 function displayNotesForm (evt){
