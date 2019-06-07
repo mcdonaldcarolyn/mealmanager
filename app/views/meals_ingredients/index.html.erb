@@ -8,7 +8,7 @@ h1><%= @meal.title %></h1>
   <% mi = @meal.meals_ingredients.find { |mi| mi.ingredient_id == ingredient.id } %>
   <li><%= ingredient.name %>
  <%= link_to "Delete", meals_ingredient_path(mi), method: :delete %> 
-   <%= render 'form' %>
+  
   </li>
   
 <% end%>
