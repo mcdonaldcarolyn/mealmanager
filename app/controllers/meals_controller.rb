@@ -39,6 +39,7 @@ class MealsController < ApplicationController
     @meal.update(meal_params)
   if @meal.save
     redirect_to meals_path
+    respond_to 
   else 
     redirect_to meals_path
   end

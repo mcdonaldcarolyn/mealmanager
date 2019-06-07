@@ -5,7 +5,12 @@ class IngredientsController < ApplicationController
       @meal = Meal.find(params[:meal_id])
       @ingredients = @meal.ingredients
       @meals_ingredient = MealsIngredient.new
-      render :show
+      
+      respond_to do |format|    
+        format.html {render :show}    
+         format.json {render json: @ingredients}
+      end
+      
     else
       @ingredients = Ingredient.all
       render json: @ingredients

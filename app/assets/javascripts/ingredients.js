@@ -1,18 +1,28 @@
-$(document).ready(() => {
-console.log("ingredients")
+$(document).ready(() =>{
+    console.log("ingredients.js");
+   
+    $('a#editMeal').click(function (evt) {
+        evt.preventDefault();
+        const id = evt.target.getAttribute('data-meal-id');
+        $.get('/meals/' + id + '/ingredients.json', function(ingredients) {
+            console.log(ingredients);
+            let htmlStr = '<ul>';
+
+            for (let i = 0; i < ingredients.length; i++) {
+                const ingredient = ingredients[i];
+                htmlStr = htmlStr + '<li>' + ingredient.name + '</li>';
+            }
+
+            htmlStr += '</ul>';
+
+            $('#editForm-' + id).html(htmlStr);
+
+            
+
+        });
+    });
 
 
+ 
 });
-
-// window.addEventListener('DOMContentLoaded', (event) => {
-//     // change this to the route in your controller to return json
-//     fetch('/ingredients/getsomething')
-//         .then(resp => resp.json)
-//         .then(ingredients => {
-//             // confirm on index ingredients that this is in devtools console
-//             console.log(ingredients);
-
-//             // select a div on the page <div id="ingredients"></div>
     
-//         })
-//     })
