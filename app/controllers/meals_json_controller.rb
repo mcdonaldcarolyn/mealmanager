@@ -4,4 +4,9 @@ class MealsJsonController < ApplicationController
         @ingredients = @meal.ingredients
         render json: @ingredients
     end
+
+    def create
+        
+    
+    end
 end
