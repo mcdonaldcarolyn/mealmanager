@@ -14,7 +14,7 @@ or
 <%= link_to 'Add Note', '', :id => 'addNote' %> 
 
   <div id='hiddenForm' style='display:none'>
-    <%= form_for @meal, url:  do |f| %>
+    <%= form_for @meal do |f| %>
       <%= f.text_field :notes %>
       <%= f.submit('Add') %>
     <% end %>

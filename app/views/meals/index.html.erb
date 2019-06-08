@@ -7,6 +7,7 @@
     (<%= link_to "Ingredients", "#", {id:"editMeal", data:{meal_id: meal.id}} %>)
     
     <div id="editForm-<%=meal.id%>">
+   
     </div>
   
   </li>
@@ -16,9 +17,11 @@
   <% end %>
   <div style="display:none" id="hidden">
   <%= render  'form', :locals => {:meal => Meal.new} %>
+
   </div>
     <br>
     <%= link_to "Make a new meal", new_meal_path(@meal)%>
+
 
     <h4> Vegetarian Meals</h4>
 
