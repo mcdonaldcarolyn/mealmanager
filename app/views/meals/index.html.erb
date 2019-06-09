@@ -7,10 +7,20 @@
     (<%= link_to "Ingredients", "#", {id:"editMeal", data:{meal_id: meal.id}} %>)
     
     <div id="editForm-<%=meal.id%>">
-   
+    
     </div>
-  
-  </li>
+    <button style="display:none" id="hiddenAdd-<%=meal.id%>" >Add Ingredient</button>
+    
+      <div id="formAdd-<%=meal.id%>" style="display:none">
+          <%= form_for @meals_ingredient do |f| %> 
+            <%= f.hidden_field :meal_id, :value => meal.id %>
+            <%= form_for @meals_ingredient.build_ingredient do |ingredients_fields| %>   
+              <%= ingredients_fields.text_field :name %>
+              <%= f.submit %>
+            <% end %>
+          <% end %>
+      </div>
+    </li>
 
 
 
