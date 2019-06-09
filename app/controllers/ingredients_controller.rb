@@ -8,7 +8,7 @@ class IngredientsController < ApplicationController
       
       respond_to do |format|    
         format.html {render :show}    
-         format.json {render json: @ingredients}
+        format.json {render json: @ingredients}
       end
       
     else
@@ -29,9 +29,13 @@ class IngredientsController < ApplicationController
   def create 
     @ingredient = Ingredient.new(ingredient_params)
     if @ingredient.save
-      redirect_to meal_ingredients_path
-    else
-      render :new
+      #redirect_to meal_ingredients_path
+      respond_to do |format|    
+        format.html {render :show}    
+         format.json {render json: @ingredients}
+      end
+    # else
+    #   render json: @ingredient
     end
   end
 
