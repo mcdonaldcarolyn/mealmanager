@@ -1,15 +1,32 @@
 class MealsIngredientsController < ApplicationController
+  skip_before_action :verify_authenticity_token
+  before_action :set_cors_headers
 
+  def set_cors_headers
+    response.set_header "Access-Control-Allow-Origin", origin
+  end
+
+  def origin
+    request.headers["Origin"] || "*"
+  end
 
   def create
 
-    if meals_ingredient_params[:ingredient_id].length > 0
+    # puts "Hello, world create"
+    # puts params
+    # render json: { foo: 'sdf' }
+
+    if meals_ingredient_params[:ingredient_id] && meals_ingredient_params[:ingredient_id].length > 0
       meal_ingredient = MealsIngredient.params_make(meals_ingredient_params)
-      redirect_to meal_ingredients_path(meal_ingredient.meal)
     else
       meal_ingredient = MealsIngredient.params_check(meals_ingredient_params)
-      redirect_to meal_ingredients_path(meal_ingredient.meal)
     end
+
+    respond_to do |format|    
+      format.html {redirect_to meal_ingredients_path(meal_ingredient.meal)}    
+      format.json {render json: meal_ingredient}
+    end
+
   end
   
 
