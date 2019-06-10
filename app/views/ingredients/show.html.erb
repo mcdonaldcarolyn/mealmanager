@@ -33,7 +33,8 @@ or
 
 Create Ingredient:
 
-<%= f.fields_for @meals_ingredient do |ingredients_fields| %>
+<%= f.fields_for @meals_ingredient.build_ingredient
+ do |ingredients_fields| %>
     <%= ingredients_fields.text_field :name %>
 
   and add your amount:
