@@ -40,10 +40,11 @@ $(document).ready(() =>{
                     method: 'POST',
                     url: '/meals_ingredients',
                     data: value,
-                    success: function (resp_obj){
-                        console.log("got to here");
-                        console.log(resp_obj);
-                     }
+                    success: function (){
+                        const nameValue = value.filter(item => item.name === 'ingredient[name]');
+                        $(`#editForm-${id} ul`).append(`<li>${nameValue[0].value}</li>`);
+                        $('#formAdd-' + id).hide();   
+                    }
                 });
             }
 
