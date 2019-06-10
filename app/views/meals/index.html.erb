@@ -16,6 +16,10 @@
             <%= f.hidden_field :meal_id, :value => meal.id %>
             <%= form_for @meals_ingredient.build_ingredient do |ingredients_fields| %>   
               <%= ingredients_fields.text_field :name %>
+             <br>
+             and amount
+              <%= f.number_field :amount %>
+               <%= f.select :unit, ["ounce(s)", "lb(s)", "cup(s)", "teas", "tbsp"] %>
               <%= f.submit %>
             <% end %>
 
