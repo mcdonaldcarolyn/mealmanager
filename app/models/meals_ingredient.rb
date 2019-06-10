@@ -33,10 +33,17 @@ class MealsIngredient < ApplicationRecord
       meal_ingredient
   end
 
-  def self.params_check(meals_ingredient_params)
-    ingredient = Ingredient.find_or_create_by({
-      :name => meals_ingredient_params[:ingredient][:name]
-    })
+  def self.params_check(meals_ingredient_params, ingred)
+    if (ingred)
+      ingredient = Ingredient.find_or_create_by({
+        :name => ingred[:name]
+      })
+    else
+      ingredient = Ingredient.find_or_create_by({
+        :name => meals_ingredient_params[:ingredient][:name]
+      })
+    end
+
     meal_ingredient = MealsIngredient.create({
       :meal_id => meals_ingredient_params[:meal_id],
       :ingredient_id => ingredient.id,

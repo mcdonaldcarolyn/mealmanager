@@ -11,26 +11,21 @@ class MealsIngredientsController < ApplicationController
   end
 
   def create
-
-    # puts "Hello, world create"
-    # puts params
-    # render json: { foo: 'sdf' }
-
     if meals_ingredient_params[:ingredient_id] && meals_ingredient_params[:ingredient_id].length > 0
       meal_ingredient = MealsIngredient.params_make(meals_ingredient_params)
     else
-      meal_ingredient = MealsIngredient.params_check(meals_ingredient_params)
+      meal_ingredient = MealsIngredient.params_check(meals_ingredient_params, params[:ingredient])
     end
+
+    puts 'meal ingredient is '
+    puts meal_ingredient.inspect
 
     respond_to do |format|    
       format.html {redirect_to meal_ingredients_path(meal_ingredient.meal)}    
       format.json {render json: meal_ingredient}
     end
-
   end
   
-
-
   def show 
      @meal = Meal.find_by(params[:meal_id])
      @meals_ingredient = MealsIngredient.find(params[:id])

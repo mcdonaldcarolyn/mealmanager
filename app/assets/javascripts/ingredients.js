@@ -35,10 +35,16 @@ $(document).ready(() =>{
                 console.log('value is ');
                 console.log(value);
 
-                $.post('/meals_ingredients', value, function(resp_obj){
-                   console.log("got to here");
-                   console.log(resp_obj);
-                })
+                $.ajax({
+                    dataType: 'json',
+                    method: 'POST',
+                    url: '/meals_ingredients',
+                    data: value,
+                    success: function (resp_obj){
+                        console.log("got to here");
+                        console.log(resp_obj);
+                     }
+                });
             }
 
         });

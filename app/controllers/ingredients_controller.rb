@@ -32,7 +32,7 @@ class IngredientsController < ApplicationController
       #redirect_to meal_ingredients_path
       respond_to do |format|    
         format.html {render :show}    
-         format.json {render json: @ingredients}
+        format.json {render json: @ingredients}
       end
     # else
     #   render json: @ingredient
