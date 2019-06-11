@@ -27,7 +27,8 @@ class MealsIngredient < ApplicationRecord
         :meal_id => meals_ingredient_params[:meal_id],
         :ingredient_id => meals_ingredient_params[:ingredient_id],
         :amount => meals_ingredient_params[:amount],
-        :unit => meals_ingredient_params[:unit]
+        :unit => meals_ingredient_params[:unit],
+        :name =>meals_ingredient_params[:ingredientname]
       })
 
       meal_ingredient
@@ -41,8 +42,8 @@ class MealsIngredient < ApplicationRecord
       meal_ingredient = MealsIngredient.create({
         :meal_id => meals_ingredient_params[:meal_id],
         :ingredient_id => ingredient.id,
-        :amount => 1,
-        :unit => ''
+        :amount => meals_ingredient_params[:amount],
+        :unit => meals_ingredient_params[:unit]
       })
     else
       ingredient = Ingredient.find_or_create_by({
