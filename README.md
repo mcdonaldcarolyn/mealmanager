@@ -1,6 +1,6 @@
 # README
 
-Flatiron Rails Project- Mealmanager
+Flatiron Rails/JS Project- Mealmanager
 
 This app demonstrates the use of basic Ruby on Rails, RESTful routes, nested routes, and Omniauth.
 
