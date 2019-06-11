@@ -6,18 +6,20 @@ class IngredientsController < ApplicationController
       @ingredients = @meal.ingredients
       @meals_ingredient = MealsIngredient.new
       
-      # respond_to do |format|    
-      #   format.html {render :index}    
-      #   format.json {render json: @ingredients}
-      # end
+      respond_to do |format|    
+        format.html {render :index}    
+        format.json {render json: @ingredients}
+      end
       
     else
+      @meal = Meal.fin(params[:meal_id])
       @ingredients = Ingredient.all
       # render json: @ingredients
     end
   end
 
   def show 
+    @meal = Meal.find(params[:meal_id])
     @ingredient = Ingredient.find(params[:id])
     @meals_ingredients = MealsIngredient.all
   end
