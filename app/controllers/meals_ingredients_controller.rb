@@ -22,7 +22,7 @@ class MealsIngredientsController < ApplicationController
 
     respond_to do |format|    
       format.html {redirect_to meal_ingredients_path(meal_ingredient.meal)}    
-      format.json {render json: meal_ingredient}
+      format.json {render json: meal_ingredient.ingredient}
     end
   end
   
