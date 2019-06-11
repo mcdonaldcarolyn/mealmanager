@@ -40,18 +40,31 @@ $(document).ready(() =>{
                     method: 'POST',
                     url: '/meals_ingredients',
                     data: value,
-                    success: function (){
+                    success: function (resp_obj) {
+
+                        const ingredient = new Ingredient(resp_obj);
+                        ingredient.showConfirmationMessage();
+
+                        // this is just to add the ingredient to the list
                         const nameValue = value.filter(item => item.name === 'ingredient[name]');
                         $(`#editForm-${id} ul`).append(`<li>${nameValue[0].value}</li>`);
                         $('#formAdd-' + id).hide();   
                     }
                 });
             }
-
         });
     });
 
+    class Ingredient {
+        constructor(data) {
+            this.id = data.id;
+            this.name = data.name;
+        }
 
- 
+        showConfirmationMessage() {
+            window.alert('New ingredient added: ' + this.name);
+        }
+    }  
 });
     
+
