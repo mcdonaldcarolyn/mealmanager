@@ -5,8 +5,8 @@
 <% end %>
 <% @ingredients.each do |ingredient|%>
 <li>
-  <%= ingredient.name %>
-   <%= link_to "Edit", edit_ingredient_path(ingredient) %> 
+  <%= link_to ingredient.name, ingredient_path(ingredient) %>
+   
   <% end %>
   <br>
   <br>
