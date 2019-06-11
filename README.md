@@ -14,6 +14,7 @@ In your terminal, write the following commands:
 * `cd mealmanager`
 * `bundle install`
 * `rake db:migrate`
+* `rake db:seed`
 * add google app id and key to allow omniauth to work 
 * Follow prompts on the Welcome page and start making meals and adding ingredients.
 #### Contributing

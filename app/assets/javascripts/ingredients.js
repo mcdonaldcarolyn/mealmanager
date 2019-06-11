@@ -35,12 +35,7 @@ $(document).ready(() =>{
                 console.log('value is ');
                 console.log(value);
 
-                $.ajax({
-                    dataType: 'json',
-                    method: 'POST',
-                    url: '/meals_ingredients',
-                    data: value,
-                    success: function (resp_obj) {
+                $.post('/meals_ingredients', value, function(resp_obj) {
 
                         const ingredient = new Ingredient(resp_obj);
                         ingredient.showConfirmationMessage();
@@ -50,7 +45,7 @@ $(document).ready(() =>{
                         $(`#editForm-${id} ul`).append(`<li>${nameValue[0].value}</li>`);
                         $('#formAdd-' + id).hide();   
                     }
-                });
+                );
             }
         });
     });

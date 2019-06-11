@@ -6,14 +6,14 @@ class IngredientsController < ApplicationController
       @ingredients = @meal.ingredients
       @meals_ingredient = MealsIngredient.new
       
-      respond_to do |format|    
-        format.html {render :show}    
-        format.json {render json: @ingredients}
-      end
+      # respond_to do |format|    
+      #   format.html {render :index}    
+      #   format.json {render json: @ingredients}
+      # end
       
     else
       @ingredients = Ingredient.all
-      render json: @ingredients
+      # render json: @ingredients
     end
   end
 

@@ -1,5 +1,8 @@
+<% if @meal %>
+<h1><%= @meal.title %></h1>
+<% else %>
 <h1>Ingredient List</h1>
-
+<% end %>
 <% @ingredients.each do |ingredient|%>
 <li>
   <%= ingredient.name %>
