@@ -32,7 +32,6 @@ class MealsIngredientsController < ApplicationController
   end
 
   def edit 
-    # byebug
     @meal_ingredient = MealsIngredient.find(params[:id])
     # render "meals_ingredient/edit"
   end

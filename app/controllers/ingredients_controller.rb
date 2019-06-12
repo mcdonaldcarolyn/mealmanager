@@ -12,7 +12,7 @@ class IngredientsController < ApplicationController
       end
       
     else
-      # @meal = Meal.find(params[:meal_id])
+      
       @ingredients = Ingredient.all
       # render json: @ingredients
     end
