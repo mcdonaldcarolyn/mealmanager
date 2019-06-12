@@ -23,12 +23,12 @@ class IngredientsController < ApplicationController
     @ingredient = Ingredient.find(params[:id])
     @meals_ingredients = MealsIngredient.all
 
-    render json: @ingredient
+    
 
-    # respond_to do |format|
-    #   format.html {render :show}
-    #   format.json {render json: @ingredient}
-    # end
+    respond_to do |format|
+      format.html {render :show}
+      format.json {render json: @ingredient}
+    end
   end
 
   def new
