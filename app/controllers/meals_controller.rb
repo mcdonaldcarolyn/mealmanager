@@ -18,6 +18,7 @@ class MealsController < ApplicationController
   
   def new 
     @meal = Meal.new
+  
   end
 
   
@@ -25,8 +26,12 @@ class MealsController < ApplicationController
   def create
     @meal = Meal.new(meal_params)
     if @meal.save
-      redirect_to meal_ingredients_path(@meal)
-      #redirect_to new_meal_path(@meal)
+       redirect_to meals_path
+      # redirect_to new_meal_path(@meal)
+      # respond_to do |format|    
+      #   format.html {render :index}    
+      #   format.json {render json: @ingredients}
+      # end
     else
       render :new
     end
