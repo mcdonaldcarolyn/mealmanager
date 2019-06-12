@@ -5,8 +5,9 @@
 <% end %>
 <% @ingredients.each do |ingredient|%>
 <li>
-  <%= link_to ingredient.name, ingredient_path(ingredient), {id:"ingredientName", data:{ingredient_id: ingredient.id}} %>
-   
+  <%= link_to ingredient.name, "#", {id:"ingredientName", data:{ingredient_id: ingredient.id}} %>
+  <div id="ingredientName-<%=ingredient.id%>">
+  </div>
   <% end %>
   <br>
   <br>
