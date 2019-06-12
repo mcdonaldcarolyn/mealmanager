@@ -2,14 +2,14 @@
 <h1><%= @meal.title %></h1>
 
 
-<h1>Ingredient List</h1>
+<h3>Ingredient List</h3>
 
 <% @ingredients.each do |ingredient|%>
 <li>
   <%= link_to ingredient.name, "#", {id:"ingredientName", data:{ingredient_id: ingredient.id}} %>
-  <div id="ingredientName-<%=ingredient.id%>">
+  <span id="ingredientName-<%=ingredient.id%>" style="font-size:12px">
   (<%= link_to "Remove", meal_ingredient_path(@meal, ingredient), method: :delete %>)
-  </div>
+  </span>
   <% end %>
   <br>
   <br>
@@ -18,7 +18,9 @@
   <%= link_to "View Ingredients", ingredients_path()%>
 
   <% else %>
-  <h1>Ingredient List</h1>
+
+
+  <h3>Ingredient List</h3>
 
 <% @ingredients.each do |ingredient|%>
 <li>

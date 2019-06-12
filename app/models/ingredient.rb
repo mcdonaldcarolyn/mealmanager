@@ -13,7 +13,7 @@ class Ingredient < ApplicationRecord
   
 
     def self.gluten
-      where(name: [ "bread", "pasta", "ziti", 'farro'])
+      where(name: [ "bread", "pasta", "ziti", 'farro', "dough"])
     end
 
 end
