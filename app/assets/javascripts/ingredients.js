@@ -80,24 +80,26 @@ class Ingredient {
 }  
   
 function addIngredientShowClickListener() {
-    $('a#ingredientName).click(ingredientNameClick);
+    $('a#ingredientName').click(ingredientNameClick);
 
 } 
 function ingredientNameClick(evt){
     evt.preventDefault();
-    const ingred = evt.target.getAttribute(ingredient_id);
-    $.get('/ingredients/${id}.json', function (ingredients) {
-        showMeals(id);
+    const ingred = evt.target.getAttribute('data-ingredient-id');
+    $.get('/ingredients/${id}.json', function(ingredients) {
+        showMeals(ingred);
         
     });
 }
-function showMeals(id, ){
+function showMeals(ingred, meals){
+    console.log(ingred);
+    console.log(meals);
     let showstr = '<ul>';
     for (let i = 0; i < meal.length; i++) {
         const ingredient = meals[i];
         htmlStr = htmlStr + '<li>' + meal.title + '</li>';
         }
     htmlStr += '</ul>';
-    $('#ingredientName-' + id).html(showStr);
+    $('#ingredientName-' + ingred).html(showStr);
 }
 
