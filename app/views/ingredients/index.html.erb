@@ -1,6 +1,6 @@
 <% if @meal %>
 <h1><%= @meal.title %></h1>
-(<%= link_to "Remove", meal_ingredient_path(@meal, ingredient), method: :delete %>)
+
 <% else %>
 <h1>Ingredient List</h1>
 <% end %>
