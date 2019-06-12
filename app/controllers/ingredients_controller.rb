@@ -12,16 +12,23 @@ class IngredientsController < ApplicationController
       end
       
     else
-      @meal = Meal.fin(params[:meal_id])
+      # @meal = Meal.find(params[:meal_id])
       @ingredients = Ingredient.all
       # render json: @ingredients
     end
   end
 
   def show 
-    @meal = Meal.find(params[:meal_id])
+    # @meal = Meal.find(params[:meal_id])
     @ingredient = Ingredient.find(params[:id])
     @meals_ingredients = MealsIngredient.all
+
+    render json: @ingredient
+
+    # respond_to do |format|
+    #   format.html {render :show}
+    #   format.json {render json: @ingredient}
+    # end
   end
 
   def new
