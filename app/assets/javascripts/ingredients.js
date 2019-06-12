@@ -2,6 +2,7 @@
 $(document).ready(() => {
     addIngredientListClickListener();
     addIngredientShowClickListener();
+    
 });
 
 function addIngredientListClickListener() {
@@ -94,5 +95,9 @@ function showMeals(id, ){
     let showstr = '<ul>';
     for (let i = 0; i < meal.length; i++) {
         const ingredient = meals[i];
-        htmlStr = htmlStr + '<li>' + ingredient.name + '</li>';
+        htmlStr = htmlStr + '<li>' + meal.title + '</li>';
+        }
+    htmlStr += '</ul>';
+    $('#ingredientName-' + id).html(showStr);
 }
+
