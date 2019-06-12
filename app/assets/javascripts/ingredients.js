@@ -2,7 +2,7 @@
 $(document).ready(() => {
     addIngredientListClickListener();
     addIngredientShowClickListener();
-    
+
 });
 
 function addIngredientListClickListener() {
@@ -80,7 +80,7 @@ class Ingredient {
 }  
   
 function addIngredientShowClickListener() {
-    $('a#ingredientName').click(ingredientNameClick);
+    $('a#ingredientName).click(ingredientNameClick);
 
 } 
 function ingredientNameClick(evt){
