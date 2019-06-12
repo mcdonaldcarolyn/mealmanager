@@ -2,7 +2,6 @@
 $(document).ready(() => {
     addIngredientListClickListener();
     addIngredientShowClickListener();
-
 });
 
 function addIngredientListClickListener() {
@@ -54,7 +53,7 @@ function createIngredientObj(evt, id){
     console.log('value is ');
     console.log(value);
 
-    $.post('/meals_ingredients', value, function(resp_obj) {
+    $.post('/meals_ingredients.json', value, function(resp_obj) {
 
         const ingredient = new Ingredient(resp_obj);
         ingredient.showConfirmationMessage();
@@ -85,21 +84,21 @@ function addIngredientShowClickListener() {
 } 
 function ingredientNameClick(evt){
     evt.preventDefault();
-    const ingred = evt.target.getAttribute('data-ingredient-id');
-    $.get('/ingredients/${id}.json', function(ingredients) {
-        showMeals(ingred);
+    const id = evt.target.getAttribute('data-ingredient-id');
+    $.get(`/ingredients/${id}.json`, function(ingredient) {
+        showMeals(ingredient, id);
         
     });
 }
-function showMeals(ingred, meals){
-    console.log(ingred);
-    console.log(meals);
-    let showstr = '<ul>';
-    for (let i = 0; i < meal.length; i++) {
-        const ingredient = meals[i];
+
+function showMeals(ingredient, id){
+    console.log(ingredient);
+    let htmlStr = '<ul>';
+    for (let i = 0; i < ingredient.meals.length; i++) {
+        const meal = ingredient.meals[i];
         htmlStr = htmlStr + '<li>' + meal.title + '</li>';
-        }
+    }
     htmlStr += '</ul>';
-    $('#ingredientName-' + ingred).html(showStr);
+    $('#ingredientName-' + id).html(htmlStr);
 }
 
