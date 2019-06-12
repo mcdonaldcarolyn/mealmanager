@@ -1,5 +1,6 @@
 <% if @meal %>
 <h1><%= @meal.title %></h1>
+(<%= link_to "Remove", meal_ingredient_path(@meal, ingredient), method: :delete %>)
 <% else %>
 <h1>Ingredient List</h1>
 <% end %>
@@ -7,7 +8,7 @@
 <li>
   <%= link_to ingredient.name, "#", {id:"ingredientName", data:{ingredient_id: ingredient.id}} %>
   <div id="ingredientName-<%=ingredient.id%>">
-  (<%= link_to "Remove", "# ", method: :delete %>)
+  
   </div>
   <% end %>
   <br>
