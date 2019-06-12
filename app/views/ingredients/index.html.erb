@@ -15,14 +15,15 @@
   <br>
   <%= link_to "Back to Meal's list", meals_path %>
   <br>
-  <%= link_to "Edit Ingredients", ingredients_path()%>
+  <%= link_to "View Ingredients", ingredients_path()%>
 
   <% else %>
   <h1>Ingredient List</h1>
-<% end %>
+
 <% @ingredients.each do |ingredient|%>
 <li>
   <%= link_to ingredient.name, "#", {id:"ingredientName", data:{ingredient_id: ingredient.id}} %>
   <% end %>
   <br>
   <%= link_to "Back to Meal's list", meals_path %>
+  <% end %>
