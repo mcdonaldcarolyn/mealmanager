@@ -6,7 +6,11 @@
 
 <% @ingredients.each do |ingredient|%>
 <li>
-  <%= link_to ingredient.name, "#", {id:"ingredientName", data:{ingredient_id: ingredient.id}} %>
+  
+  <% @ingredients.each do |ingredient| %>
+    <% mealing = @meal.meals_ingredients.find { |mi| mi.ingredient_id == ingredient.id } %>
+    <li> <%=link_to ingredient.name, "#", {id:"ingredientName", data:{ingredient_id: ingredient.id}}%> (<%= mealing.amount %> <%= mealing.unit%>)
+    <% end %>
   <span id="ingredientName-<%=ingredient.id%>" style="font-size:12px">
   (<%= link_to "Remove", meal_ingredient_path(@meal, ingredient), method: :delete %>)
   </span>
