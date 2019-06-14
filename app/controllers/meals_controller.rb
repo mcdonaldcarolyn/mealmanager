@@ -6,14 +6,14 @@ class MealsController < ApplicationController
     @glutenfree = MealsIngredient.find_glutenfree_meals
     @vegetarian = MealsIngredient.find_veg_meals
     @meals_ingredient = MealsIngredient.new
-    #render json: @meals
+   
   end
   def show 
     @meals = Meal.all
     @meal = Meal.find(params[:id])
     @ingredients = Ingredient.all
     @meals_ingredient = MealsIngredient.new
-   #render json: @meals
+  
   end
   
   def new 
@@ -27,11 +27,7 @@ class MealsController < ApplicationController
     @meal = Meal.new(meal_params)
     if @meal.save
        redirect_to meals_path
-      # redirect_to new_meal_path(@meal)
-      # respond_to do |format|    
-      #   format.html {render :index}    
-      #   format.json {render json: @ingredients}
-      # end
+      
     else
       render :new
     end
