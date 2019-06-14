@@ -12,7 +12,6 @@ class IngredientsController < ApplicationController
       end
       
     else
-      
       @ingredients = Ingredient.all
       # render json: @ingredients
     end
@@ -22,8 +21,6 @@ class IngredientsController < ApplicationController
     # @meal = Meal.find(params[:meal_id])
     @ingredient = Ingredient.find(params[:id])
     @meals_ingredients = MealsIngredient.all
-
-    
 
     respond_to do |format|
       format.html {render :show}
@@ -37,15 +34,13 @@ class IngredientsController < ApplicationController
 
   def create 
     @ingredient = Ingredient.new(ingredient_params)
-    if @ingredient.save
-      #redirect_to meal_ingredients_path
+     @ingredient.save
+      
       respond_to do |format|    
         format.html {render :show}    
         format.json {render json: @ingredients}
       end
-    # else
-    #   render json: @ingredient
-    end
+    
   end
 
   def edit 
