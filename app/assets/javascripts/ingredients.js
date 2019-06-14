@@ -29,7 +29,7 @@ function showIngredients(id, ingredients) {
 
     htmlStr += '</ul>';
 
-    $('#editForm-' + id).html(htmlStr);
+    $('#ingredientForm-' + id).html(htmlStr);
 }
 
 function showForm(id){
@@ -60,7 +60,7 @@ function createIngredientObj(evt, id){
 
         // this is just to add the ingredient to the list
         const nameValue = value.filter(item => item.name === 'ingredient[name]');
-        $(`#editForm-${id} ul`).append(`<li>${nameValue[0].value}</li>`);
+        $(`#ingredientForm-${id} ul`).append(`<li>${nameValue[0].value}</li>`);
         $('#formAdd-' + id).hide();   
 
     });

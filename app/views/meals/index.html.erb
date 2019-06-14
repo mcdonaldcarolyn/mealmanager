@@ -6,7 +6,7 @@
     <%= link_to meal.title, meal_ingredients_path(meal)%>
     (<%= link_to "Ingredients", "#", {id:"ingredientShow", data:{meal_id: meal.id}} %>)
     
-    <div id="editForm-<%=meal.id%>">
+    <div id="ingredientForm-<%=meal.id%>">
     
     </div>
     <button style="display:none" id="hiddenAdd-<%=meal.id%>" >Add Ingredient</button>
