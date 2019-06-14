@@ -6,7 +6,7 @@ $(document).ready(() => {
 
 function addIngredientListClickListener() {
     console.log("ingredients.js");
-    $('a#editMeal').click(editMealClick);
+    $('a#ingredientShow').click(editMealClick);
 }
 
 function editMealClick(evt) {
