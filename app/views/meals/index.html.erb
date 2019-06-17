@@ -4,8 +4,8 @@
 <% @meals.each do |meal|%>
   <li>
     <%= link_to meal.title, meal_ingredients_path(meal)%>
-    (<%= link_to "Ingredients", "#", {id:"ingredientShow", data:{meal_id: meal.id}} %>)
-    
+    (<%= link_to " Show ingredients", "#", {id:"ingredientShow", data:{meal_id: meal.id}} %>)
+    <%= link_to "Add ingredients", "#", {id:"ingredientAdd", data:{meal_id: meal.id}} %>
     <div id="ingredientForm-<%=meal.id%>">
     
     </div>

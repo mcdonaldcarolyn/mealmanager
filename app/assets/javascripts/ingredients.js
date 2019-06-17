@@ -1,6 +1,13 @@
 
-$(document).ready(() => {
+// $(document).ready(() => {
+//     addIngredientListClickListener();
+//     addIngredientFormClicklistener();
+//     addIngredientShowClickListener();
+// });
+
+$(document).on('turbolinks:load', () => {
     addIngredientListClickListener();
+    addIngredientFormClicklistener();
     addIngredientShowClickListener();
 });
 
@@ -15,7 +22,7 @@ function editMealClick(evt) {
     $.get('/meals/' + id + '/ingredients.json', function (ingredients) {
         console.log(ingredients);
         showIngredients(id, ingredients);
-        showForm(id);
+        //showForm(id);
     });
 }
 
@@ -31,8 +38,24 @@ function showIngredients(id, ingredients) {
 
     $('#ingredientForm-' + id).html(htmlStr);
 }
+function addIngredientFormClicklistener(){
+    $('a#ingredientAdd').click(function (evt) {
+        evt.preventDefault();
+        const id = evt.target.getAttribute('data-meal-id');
+        $('#formAdd-' + id).show();
 
-function showForm(id){
+        $(`#formAdd-${id} > form`).submit(function (evt) {
+            evt.preventDefault();
+            createIngredientObj(evt, id)
+        });
+    });
+   
+    //console.log(id)
+
+}
+function showForm(evt){
+    evt.preventDefault();
+    const id = evt.target.getAttribute('data-meal-id');
     $('#hiddenAdd-' + id).show();
     $('#hiddenAdd-' + id).click(function (evt) {
         evt.preventDefault();
@@ -48,7 +71,7 @@ function showForm(id){
 function createIngredientObj(evt, id){
     evt.preventDefault();
 
-    let value = $(`#formAdd-${id} > form`).serializeArray()
+    let value = $(`#formAdd-${id} > form`).serializeArray();
     
     console.log('value is ');
     console.log(value);
@@ -66,6 +89,12 @@ function createIngredientObj(evt, id){
     });
 }   
 
+class Meal {
+    constructor(data) {
+        this.id = data.id;
+        this.title = data.title;
+    }
+}
 
 class Ingredient {
     constructor(data) {
