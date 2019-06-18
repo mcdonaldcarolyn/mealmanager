@@ -13,10 +13,10 @@ $(document).on('turbolinks:load', () => {
 
 function addIngredientListClickListener() {
     console.log("ingredients.js");
-    $('a#ingredientShow').click(editMealClick);
+    $('a#ingredientShow').click(showIngredientClick);
 }
 
-function editMealClick(evt) {
+function showIngredientClick(evt) {
     evt.preventDefault();
     const id = evt.target.getAttribute('data-meal-id');
     $.get('/meals/' + id + '/ingredients.json', function (ingredients) {
