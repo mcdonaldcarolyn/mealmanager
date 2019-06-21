@@ -80,11 +80,11 @@ function createIngredientObj(evt, id){
 
         const ingredient = new Ingredient(resp_obj);
         ingredient.showConfirmationMessage();
-
-        // this is just to add the ingredient to the list
-        const nameValue = value.filter(item => item.name === 'ingredient[name]');
-        $(`#ingredientForm-${id} ul`).append(`<li>${nameValue[0].value}</li>`);
-        $('#formAdd-' + id).hide();   
+        ingredient.addIngerdToList(id);
+      
+        // const nameValue = value.filter(item => item.name === 'ingredient[name]');
+        // $(`#ingredientForm-${id} ul`).append(`<li>${nameValue[0].value}</li>`);
+         $('#formAdd-' + id).hide();   
 
     });
 }   
@@ -97,7 +97,9 @@ class Ingredient {
         this.id = data.id;
         this.name = data.name;
     }
-
+    addIngerdToList(mealId){
+         $(`#ingredientForm-${mealId} ul`).append(`<li>${this.name}</li>`);
+    }
     showConfirmationMessage() {
         window.alert('New ingredient added: ' + this.name);
     }
