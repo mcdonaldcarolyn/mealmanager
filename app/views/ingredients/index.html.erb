@@ -4,10 +4,7 @@
 
 <h3>Ingredient List</h3>
 
-
-
-
-  <ul>
+<ul>
   <% @ingredients.each do |ingredient|%>
     <% mealing = @meal.meals_ingredients.find { |mi| mi.ingredient_id == ingredient.id } %>
     <li>
@@ -15,7 +12,7 @@
       <span style="font-size:12px">
         (<%= link_to "Remove", meal_ingredient_path(@meal, ingredient), method: :delete %>)
       </span>
-      <span id="ingredientName-<%=ingredient.id%>"></span>
+      <div id="ingredientName-<%=ingredient.id%>"></div>
     </li>
   <% end %>
   </ul>
